@@ -129,7 +129,7 @@ function quit(){
  * help command that lists all possible commands
  */
 function help(){
-  console.log('below are the possible commands: \n', '\n', 'quit/exit: Quits the application\n', 'hello:If no arguments were passed it outputs hello!, otherwise it will output hello (arguments passed)!\n', 'help:Shows available commands\n','list:List all tasks,\n','add: Adds a task\n','remove: Remove a task\n')
+  console.log('below are the possible commands: \n', '\n', 'quit/exit: Quits the application\n', 'hello:If no arguments were passed it outputs hello!, otherwise it will output hello (arguments passed)!\n', 'help:Shows available commands\n','list:List all tasks,\n','add: Adds a task\n','remove: Remove a task\n','edit:Edit The task\n','check:Check The Tasks\n','Uncheck:Uncheck the tasks\n')
 }
 /**
  * list command 
