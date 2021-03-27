@@ -55,6 +55,10 @@ else if (arrText[0] === 'list'){
 else if (arrText[0] === 'add'){
   add(arrText);
 }
+
+else if (arrText[0] === 'remove'){
+  remove(arrText);
+}
   else{
     unknownCommand(text);
   }
@@ -130,6 +134,16 @@ function add(arrText) {
   }
   else {
     console.log("Error: no tasks were given");
+  }
+}
+function remove(arrText){
+  if (arrText[1] === undefined){
+    tasks.pop();
+  } else if (arrText[1]-1 >tasks.length){
+    console.log(" This task number does not exist!")
+  }
+  else {
+    tasks.splice(arrText[1]-1, 1)
   }
 }
 
