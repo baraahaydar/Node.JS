@@ -52,6 +52,9 @@ else if (arrText[0] === 'list'){
  else if(arrText[0] === 'hello'){
   hello(arrText[1]);
 }
+else if (arrText[0] === 'add'){
+  add(arrText);
+}
   else{
     unknownCommand(text);
   }
@@ -108,10 +111,28 @@ function help(){
       console.log(`Task ${index + 1}: ${task}`);
     })
   }
+  
   else {
     console.log('Tasks list is empty!');
   }
 }
+function add(arrText) {
+  if (arrText[1] != undefined) {
+     let newTask = "";
+    arrText.forEach(text => {
+      if (text == "") return
+      newTask += `${text} `;
+    })
+    newTask = newTask.trim();
+    tasks.push(newTask);
+    console.log(`Task '${newTask}' was added`);
+   
+  }
+  else {
+    console.log("Error: no tasks were given");
+  }
+}
+
 
 // The following line starts the application
 startApp("Baraa Haydar")
