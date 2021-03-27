@@ -44,9 +44,9 @@ function onDataReceived(text) {
   else if (arrText[0] === 'help'){
     help(); 
 }
-  else if(text === 'hello\n'){
-    hello();
-  }
+ else if(arrText[0] === 'hello'){
+  hello(arrText[1]);
+}
   else{
     unknownCommand(text);
   }
@@ -70,8 +70,12 @@ function unknownCommand(c){
  *
  * @returns {void}
  */
-function hello(){
-  console.log('hello!')
+ function hello(text){
+  if (!text) {
+    console.log('hello!')}
+    else{
+      console.log("hello" + " " +text+'!')
+    }
 }
 
 
