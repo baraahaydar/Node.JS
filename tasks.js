@@ -59,6 +59,9 @@ else if (arrText[0] === 'add'){
 else if (arrText[0] === 'remove'){
   remove(arrText);
 }
+else if (arrText[0] === 'edit'){
+  edit(arrText);
+}
   else{
     unknownCommand(text);
   }
@@ -146,7 +149,15 @@ function remove(arrText){
     tasks.splice(arrText[1]-1, 1)
   }
 }
-
+function edit(arrText){
+  if (arrText[1] === undefined){
+    console.log("Error")
+  } else if (arrText[1]-1 < tasks.length){
+    tasks.splice(arrText[1]-1, 1, arrText.slice(2).join(" ")) 
+  } else {
+    tasks.splice(-1, 1, arrText.slice(1).join(" "))
+  }
+}
 
 // The following line starts the application
 startApp("Baraa Haydar")
