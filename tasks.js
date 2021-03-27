@@ -9,8 +9,24 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
-
- var tasks = ['HTML', 'JS', 'REACT', 'CSS'];
+ var tasks = [
+  {
+    name: "HTML",
+    done: false
+  },
+  {
+    name: "JS",
+    done: false
+  },
+  {
+    name: "REACT",
+    done: true
+  },
+  {
+    name: "CSS",
+    done: false
+  }
+]
  function startApp(name){
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
@@ -113,9 +129,15 @@ function help(){
  * list command 
  */
  function list() {
+   console.log(tasks);
   if (tasks.length > 0) {
     tasks.forEach((task, index) => {
-      console.log(`Task ${index + 1}: ${task}`);
+      if (task.done) {
+        console.log(`Task ${index + 1} [✓]: ${task.name}`);
+      }
+      else {
+        console.log(`Task ${index + 1} [ ]: ${task.name}`);
+      }
     })
   }
   
@@ -125,14 +147,17 @@ function help(){
 }
 function add(arrText) {
   if (arrText[1] != undefined) {
-     let newTask = "";
+    let newTask = {
+      name: "",
+      done: false
+    };
     arrText.forEach(text => {
       if (text == "") return
-      newTask += `${text} `;
+      newTask.name += `${text} `;
     })
-    newTask = newTask.trim();
+    newTask.name = newTask.name.trim();
     tasks.push(newTask);
-    console.log(`Task '${newTask}' was added`);
+    console.log(`Task '${newTask.name}' was added`);
    
   }
   else {
