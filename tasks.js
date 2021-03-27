@@ -9,7 +9,9 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
-function startApp(name){
+
+ var tasks = ['HTML', 'JS', 'REACT', 'CSS'];
+ function startApp(name){
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
   process.stdin.on('data', onDataReceived);
@@ -43,6 +45,9 @@ function onDataReceived(text) {
   
   else if (arrText[0] === 'help'){
     help(); 
+}
+else if (arrText[0] === 'list'){
+  list();
 }
  else if(arrText[0] === 'hello'){
   hello(arrText[1]);
@@ -93,6 +98,19 @@ function quit(){
  */
 function help(){
   console.log('below are the possible commands: \n', '\n', 'quit/exit: Quits the application\n', 'hello:If no arguments were passed it outputs hello!, otherwise it will output hello (arguments passed)!\n', 'help:Shows available commands\n')
+}
+/**
+ * list command 
+ */
+ function list() {
+  if (tasks.length > 0) {
+    tasks.forEach((task, index) => {
+      console.log(`Task ${index + 1}: ${task}`);
+    })
+  }
+  else {
+    console.log('Tasks list is empty!');
+  }
 }
 
 // The following line starts the application
