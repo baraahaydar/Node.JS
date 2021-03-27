@@ -34,7 +34,10 @@ function startApp(name){
  * @returns {void}
  */
 function onDataReceived(text) {
-  if (text === 'quit\n') {
+  text= text.replace('\n','').trim();
+  var arrText = text.split(' ');
+  console.log(arrText);
+  if (arrText[0] === 'quit' || arrText[0] === 'exit') {
     quit();
   }
   else if(text === 'hello\n'){
