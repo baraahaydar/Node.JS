@@ -84,7 +84,9 @@ function quit(){
   console.log('Quitting now, goodbye!')
   process.exit();
 }
-
+/**
+ * help command that lists all possible commands
+ */
 function help(){
   console.log('below are the possible commands: \n', '\n', 'quit\n', 'hello\n', 'help\n')
 }
