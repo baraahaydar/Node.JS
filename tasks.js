@@ -17,6 +17,7 @@
  catch { data = '[{ "name": "coffe", "done": true }] ' }
  var Elts = JSON.parse(data);
  
+
  const process = require('process');
  var proce = process.argv;
  
@@ -49,7 +50,8 @@
  console.log('write hello & your name :');
  function onDataReceived(text) {
    if (text.trim() === 'quit' || text.trim() === 'exit') {
-     quit(proce);
+  
+    quit(proce);
    }
    else if (text.trim() == 'list') {
      list(Elts);
@@ -240,14 +242,16 @@
    var fs = require('fs');
    var data = JSON.stringify(Elts);
    fs.writeFileSync('database.json', data);
-   if (proce.length > 2) {
-     fs.writeFile('./' + proce[2], data, (err) => {
-       if (!err) {
-         console.log('done');
-       }
-     });
-     fs.writeFileSync(proce[2], data);
-   }
+  
+  
+    if (proce.length > 2) {
+      fs.writeFile('./' + proce[2], data, (err) => {
+        if (!err) {
+          console.log('done');
+        }
+      });
+      fs.writeFileSync(proce[2], data);
+    }
    console.log('data saved successfully')
    console.log('Quitting now, goodbye!')
    process.exit();
